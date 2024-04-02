@@ -1,0 +1,70 @@
+.NavbarItems {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+
+  width: 95%;
+  height: 80px;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.navbar-logo {
+  color: #222;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-gap: 1px;
+  list-style: none; /*점박이.. */
+  align-items: center;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 600; /*굵기*/
+  padding: 0.7rem 1rem;
+  white-space: nowrap;
+}
+
+.nav-links i {
+  padding-right: 1px;
+}
+
+/*마우스 가져갔을 때*/
+.nav-links:hover {
+  color: rgb(30, 113, 223);
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+button {
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+}
+
+/*
+    text-transform: uppercase;
+*/
