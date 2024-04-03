@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Button, Modal } from 'antd';
+import { Layout, Button, Modal, Flex } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
 import { Link, BrowserRouter as Router } from 'react-router-dom'; // BrowserRouter 및 Link 컴포넌트 import
 import './App.css';
@@ -53,14 +53,18 @@ const App = () => {
               검사하기
             </Button>
           </div>
-           {/* 마이페이지 버튼 */}
-           <Button type="link" className="mypage-button">
-            <Link to="/mypage">마이페이지</Link>
+          <Flex wrap="wrap" gap="small" className="site-button-ghost-wrapper">
+           <Button type="primary" ghost>
+             공지사항
            </Button>
-           {/* 교양 추천 버튼 */}
-           <Button type="link" className="recommend-button">
-            <Link to="/recommend">교양 추천</Link>
+           <Button>마이페이지</Button>
+           <Button type="dashed">
+             게시판
            </Button>
+           <Button type="primary" danger ghost>
+             Notice
+           </Button>
+         </Flex>
         </Content>
         <Footer className="footer">
           연락처: abc@hoseo.edu | 출처: 호서대학교 홈페이지 | 개발자 정보: 개발자명
