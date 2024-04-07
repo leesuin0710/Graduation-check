@@ -7,7 +7,7 @@ import student_icon from "../assets/student-icon.png";
 import major_icon from "../assets/major-icon.png";
 
 function Signup() {
-  const [action, setAction] = useState("Sign Up");
+  const [action, setAction] = useState("회원가입");
 
   return (
     <>

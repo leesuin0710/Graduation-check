@@ -1,16 +1,16 @@
 export const MenuItems = [
   {
-    title: "Home",
+    title: "홈",
     url: "/",
     cName: "nav-links",
   },
   {
-    title: "Log In",
+    title: "꿀교양 찾기",
     url: "/",
     cName: "nav-links",
   },
   {
-    title: "Notice",
+    title: "마이 페이지",
     url: "/",
     cName: "nav-links",
   },
