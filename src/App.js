@@ -4,6 +4,9 @@ import React from 'react';
 import { Layout, Button } from 'antd';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar2';
+import Footer from './components/Footer';
+import './components/MenuItems';
 
 const { Content } = Layout;
 
@@ -14,6 +17,7 @@ const App = () => {
 
   return (
     <Router>
+      <Navbar />
       <Layout>
         <Content>
           <div className="image-container">
@@ -32,6 +36,7 @@ const App = () => {
           </div>
         </Content>
       </Layout>
+      <Footer />
     </Router> 
   );
 };
