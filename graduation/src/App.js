@@ -4,8 +4,9 @@ import Sidebar from './sidebar';
 import LiberalArts from './LiberalArts';
 import Major from './Major';
 import Activity from './Activity';
-import Requirements from './Requirements'; // Requirements 컴포넌트 추가
-import CourseList from './Courselist';
+import Requirements from './Requirements'; 
+import CourseList from './Courselist'; 
+import Footer from './components/Footer';
 
 const LayoutWrapper = styled.div`
   display: flex;
@@ -65,18 +66,28 @@ const App = () => {
           </div>
         </MainContentWrapper>
         <Requirements /> {/* 요구사항 컴포넌트를 교양 컴포넌트 아래에 배치 */}
-        <Title>수강 과목 등록</Title>
+        <SubjectList>수강 과목 등록</SubjectList>
         <ButtonContainer>
           <Button>파일 업로드</Button>
           <Button>직접 추가</Button>
         </ButtonContainer>
-        <CourseList />
+        <CourseList /> {/* CourseList 컴포넌트 추가 */}
       </ContentWrapper>
+      <Footer />
     </LayoutWrapper>
   );
 };
 
 export default App;
+
+
+
+
+
+
+
+
+
 
 
 

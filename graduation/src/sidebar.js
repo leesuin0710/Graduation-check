@@ -17,19 +17,23 @@ const SidebarHeader = styled.div`
   align-items: center; /* 가운데 정렬하기 위해 추가합니다. */
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px; /* 헤더와 메뉴 사이에 간격을 설정합니다. */
+  margin-bottom: 70px; /* 헤더와 메뉴 사이에 간격을 설정합니다. */
 `;
 
 const ProfileImage = styled.img`
   width: 100px;
   height: 100px;
-  border-radius: 50%; /* 원형 프로필 이미지를 위해 border-radius를 50%로 설정합니다. */
+  border-radius: 50%;
+  margin-bottom: 70px; /* 프로필 이미지 아래 간격 조정 */
+  position: relative; /* 상대적 위치 지정 */
+  top: 73px;
 `;
 
 const UserInfo = styled.div`
-  margin-top: 15px; /* 이름, 학번, 학과와 프로필 사진 사이 간격을 조정합니다. */
-  text-align: center; /* 가운데 정렬합니다. */
-  font-size: 14px; /* 텍스트 크기를 조정합니다. */
+  margin-top: 70px; /* 프로필 이미지와 유저 정보 사이 간격 조정 */
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 210px; /* 유저 정보와 정보 수정하기 버튼 사이 간격 조정 */
 `;
 
 const SidebarIcon = styled.div`
@@ -39,14 +43,14 @@ const SidebarIcon = styled.div`
 const SidebarMenu = styled.ul`
   list-style: none;
   padding: 0;
-  margin-bottom: 20px; /* 헤더와 메뉴 사이에 간격을 설정합니다. */
+  margin-bottom: 20px; 
 `;
 
 const SidebarMenuItem = styled.li`
   display: flex;
-  align-items: center; /* 텍스트를 세로 중앙으로 정렬합니다. */
+  align-items: center;
   margin-bottom: 10px;
-  height: 24px; /* 각 항목의 높이를 조정합니다. */
+  height: 24px;
 `;
 
 const ExternalLink = styled.a`
@@ -66,6 +70,7 @@ const Sidebar = () => {
           <div>김이름</div>
           <div>123456789</div>
           <div>컴퓨터공학과</div>
+          <button>정보 수정하기</button>
         </UserInfo>
       </SidebarHeader>
       
@@ -96,6 +101,7 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
 
 
 
