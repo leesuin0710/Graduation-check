@@ -1,0 +1,51 @@
+/* activity.css */
+
+.BoxWrapper {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 650px;
+    min-height: 90px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+  }
+  
+  .EditButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .ActivityTitle {
+    margin: 0; 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+  }
+  
+  .TagContainer {
+    margin-left: -150px;
+    margin-right: 200px;
+    display: flex;
+  }
+  
+  .Tag {
+    margin-right: 10px; 
+    font-weight: bold; 
+  }
+  
+  .Progress {
+    color: blue; /* 또는 red */
+    position: relative;
+  }
+  

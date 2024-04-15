@@ -1,53 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import './Activity.css'; // CSS 파일 import
 
-const BoxWrapper = styled.div`
-  position: relative;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px;
-  width: 650px;
-  height: 133px;
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-`;
-
-const EditButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-`;
-
-const ActivityTitle = styled.h3`
-  margin: 0; 
-  position: absolute; 
-  top: 10px; 
-  left: 10px; 
-`;
-
-const Tag = styled.span`
-  margin-right: 10px; 
-  font-weight: bold; 
-`;
-
-const Progress = styled.span`
-  color: ${props => (props.isValid ? 'blue' : 'red')}; 
-  position: relative;
-`;
-
-const EditableCredit = ({ value, onChange }) => {
+const Activity = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editValue, setEditValue] = useState(value.split('/')[0]);
-  const [totalValue] = useState(value.split('/')[1]); 
+  const [editValue, setEditValue] = useState('');
+  const [totalValue, setTotalValue] = useState('');
   const [isValid, setIsValid] = useState(true);
 
   const handleEdit = () => {
@@ -58,17 +15,18 @@ const EditableCredit = ({ value, onChange }) => {
     const newValue = event.target.value;
     if (!isNaN(newValue)) {
       setEditValue(newValue);
-      onChange(newValue + '/' + totalValue);
     }
     setIsValid(true);
   };
 
   const handleInputBlur = () => {
     setIsEditing(false);
-    onChange(editValue + '/' + totalValue);
+    // onBlur 이벤트에서 editValue를 totalValue와 합쳐서 onChange를 호출합니다.
+    console.log(editValue + '/' + totalValue);
   };
 
   useEffect(() => {
+    // editValue와 totalValue를 비교하여 isValid를 업데이트합니다.
     if (parseInt(editValue) === parseInt(totalValue)) {
       setIsValid(true);
     } else {
@@ -77,45 +35,60 @@ const EditableCredit = ({ value, onChange }) => {
   }, [editValue, totalValue]);
 
   return (
-    <>
-      {isEditing ? (
-        <input
-          type="text"
-          value={editValue}
-          onChange={handleInputChange}
-          onBlur={handleInputBlur}
-          autoFocus
-          style={{ width: '40px' }}
-        />
-      ) : (
-        <Progress isValid={isValid} onClick={handleEdit}>
-          {editValue}/{totalValue}
-        </Progress>
-      )}
-    </>
-  );
-};
-
-const Activity = () => {
-  return (
-    <BoxWrapper>
+    <div className="BoxWrapper">
       <div>
-        <ActivityTitle>활동</ActivityTitle>
-        <EditButton>수정하기</EditButton>
+        <h3 className="ActivityTitle">활동</h3>
+        <button className="EditButton" onClick={handleEdit}>수정하기</button>
       </div>
-      <div style={{ marginLeft: '-150px', display: 'flex' }}>
-        <Tag>채플</Tag>
-        <EditableCredit value="3/4" onChange={(newValue) => console.log(newValue)} />
+      <div className="TagContainer">
+        <span className="Tag">채플</span>
+        {isEditing ? (
+          <input
+            type="text"
+            value={editValue}
+            onChange={handleInputChange}
+            onBlur={handleInputBlur}
+            autoFocus
+            style={{ width: '40px' }}
+          />
+        ) : (
+          <span
+            className={isValid ? "Progress blue" : "Progress red"}
+            onClick={handleEdit}
+          >
+            {editValue || '3'}/{totalValue || '4'}
+          </span>
+        )}
       </div>
-      <div style={{ marginRight: '200px', display: 'flex' }}>
-        <Tag>봉사</Tag>
-        <EditableCredit value="1/1" onChange={(newValue) => console.log(newValue)} />
+      <div className="TagContainer">
+        <span className="Tag">봉사</span>
+        {isEditing ? (
+          <input
+            type="text"
+            value={editValue}
+            onChange={handleInputChange}
+            onBlur={handleInputBlur}
+            autoFocus
+            style={{ width: '40px' }}
+          />
+        ) : (
+          <span
+            className={isValid ? "Progress blue" : "Progress red"}
+            onClick={handleEdit}
+          >
+            {editValue || '1'}/{totalValue || '1'}
+          </span>
+        )}
       </div>
-    </BoxWrapper>
+    </div>
   );
 };
 
 export default Activity;
+
+
+
+
 
 
 
