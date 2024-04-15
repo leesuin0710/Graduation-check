@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import user_icon from "../assets/user-icon.png";
 import password_icon from "../assets/password-icon.png";
+import "../components/LoginStyles.css";
 
 //import Hero from "../components/Hero";
 
@@ -19,32 +20,32 @@ function Login() {
     <>
       <Navbar isLoggedIn={isLoggedIn} />{" "}
       {/* Navbar에 isLoggedIn 상태를 props로 전달 */}
-      <div className="container">
-        <div className="header">
-          <div className="text">로그인</div>
+      <div className="l_container">
+        <div className="l_header">
+          <div className="l_text">로그인</div>
         </div>
 
-        <div className="inputs">
-          <div className="input">
-            <img src={user_icon} alt="" className="icon" />
+        <div className="l_inputs">
+          <div className="l_input">
+            <img src={user_icon} alt="" className="l_icon" />
             <input type="text" placeholder="아이디" />
           </div>
 
-          <div className="input">
-            <img src={password_icon} alt="" className="icon" />
+          <div className="l_input">
+            <img src={password_icon} alt="" className="l_icon" />
             <input type="password" placeholder="비밀번호" />
           </div>
         </div>
 
-        <div className="forgot-password">
+        <div className="l_forgot-password">
           비밀번호를 잊으셨나요?{" "}
           <Link to="/reset-password" style={{ textDecoration: "none" }}>
             <span> Click Here!</span>
           </Link>
         </div>
 
-        <div className="submit-container">
-          <div className="submit" onClick={handleLogin}>
+        <div className="l_submit-container">
+          <div className="l_submit" onClick={handleLogin}>
             로그인
           </div>{" "}
           {/* 로그인 버튼 클릭 시 handleLogin 함수 호출 */}
@@ -61,5 +62,3 @@ function Login() {
 }
 
 export default Login;
-// 홈에서 로그인 눌렀을 때 연결되도록,, 손봐야함
-// 밑에 submit-container도 손을 봐야한다..

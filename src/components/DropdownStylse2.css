@@ -1,0 +1,59 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin: auto;
+  width: 350px;
+  height: 50px;
+  background: #eaeaea;
+  border-radius: 8px;
+}
+
+.selected-item-text {
+  width: 200px;
+  height: 30px;
+  padding: 4px 10px 4px 10px;
+  margin-top: 1px;
+  margin-left: 70px;
+  font-size: 14px;
+  background-color: aqua;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.dropdown-toggle.active {
+  background: transparent;
+  color: rgb(0, 0, 0); /* 활성 상태일 때의 글자색 */
+}
+
+.dropdown-toggle {
+  padding: 4px 10px 4px 10px;
+  margin-top: 10px;
+  margin-left: 235px;
+
+  cursor: pointer;
+  background: transparent;
+  color: rgb(0, 0, 0);
+
+  border-radius: 5px; /* 선택 사항: 버튼 모서리 둥글게 만들기 */
+}
+
+.dropdown-toggle.selected {
+  background-color: rgb(255, 0, 0); /* 선택된 상태일 때의 배경색 */
+  color: white; /* 선택된 상태일 때의 글자색 */
+  display: inline-block;
+}
+.dropdown-menu {
+  position: absolute;
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+  width: 90%;
+  margin-left: 8px;
+}
+
+.dropdown-item {
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #e0e0e0;
+}

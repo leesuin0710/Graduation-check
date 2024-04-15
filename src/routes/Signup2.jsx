@@ -1,13 +1,32 @@
+import React, { useState } from "react";
 import Navbar from "../components/Navbar2";
-import { useState } from "react";
-import Select from "react-select";
-
 import user_icon from "../assets/user-icon.png";
 import student_icon from "../assets/student-icon.png";
-import major_icon from "../assets/major-icon.png";
+import email_icon from "../assets/email-icon.png"; // 이메일 아이콘 이미지
+import password_icon from "../assets/password-icon.png"; // 비밀번호 아이콘 이미지
+import DropdownBtn from "../components/Dropdown2.js";
+import "../components/SignupStyles.css";
 
 function Signup() {
   const [action, setAction] = useState("회원가입");
+  const [step, setStep] = useState(1); // 폼 단계 상태 추가
+  const [agreeTerms, setAgreeTerms] = useState(false); // 이용약관 동의 상태 추가
+
+  const handleSelect = (selectedItem) => {
+    console.log("Selected item:", selectedItem);
+  };
+
+  const handleReset = () => {
+    console.log("Dropdown reset");
+  };
+
+  const handleNext = () => {
+    setStep(step + 1); // "다음" 버튼을 클릭할 때 단계 증가
+  };
+
+  const handleAgreeTerms = () => {
+    setAgreeTerms(!agreeTerms);
+  };
 
   return (
     <>
@@ -18,34 +37,73 @@ function Signup() {
           <div className="text">{action}</div>
         </div>
 
-        <div className="inputs">
-          <div className="input">
-            <img src={user_icon} alt="" className="icon" />
-            <input type="text" placeholder="아이디" />
+        {!agreeTerms && (
+          <div className="terms">
+            {/* 이용약관 동의 여부를 체크박스로 받음 */}
+            <label>
+              <input
+                type="checkbox"
+                checked={agreeTerms}
+                onChange={handleAgreeTerms}
+              />
+              이용약관에 동의합니다.
+            </label>
           </div>
+        )}
 
-          <div className="input">
-            <img src={student_icon} alt="" className="icon" />
-            <input type="tel" placeholder="학번" />
-          </div>
+        {agreeTerms && (
+          <>
+            {step === 1 && (
+              <div className="inputs">
+                <div className="input">
+                  <img src={user_icon} alt="" className="icon" />
+                  <input type="text" placeholder="아이디" />
+                </div>
+                <div className="input">
+                  <img src={student_icon} alt="" className="icon" />
+                  <input type="tel" placeholder="학번" />
+                </div>
+                <DropdownBtn
+                  drBtn_title={""}
+                  items={[
+                    "인문사회대학",
+                    "경영대학",
+                    "생명보건대학",
+                    "공과대학",
+                    "AI융합대학",
+                    "예체능대학",
+                    "미래융합대학",
+                  ]}
+                  onSelect={handleSelect}
+                  onReset={handleReset}
+                />
+              </div>
+            )}
 
-          <div className="input">
-            <img src={major_icon} alt="" className="icon" />
-            <Select
-              //여기서,, 하면 안될 거 같다 만들어 둔 css랑 섞이질 못함, 수정이 필요한 부분~
-              options={[
-                { value: "major1", label: "컴퓨터공학부" },
-                { value: "major2", label: "간호학과" },
-                { value: "major3", label: "빅데이터학과" },
-              ]}
-              placeholder="전공"
-            />
-          </div>
-        </div>
+            {step === 2 && (
+              <div className="inputs">
+                <div className="input">
+                  <img src={email_icon} alt="" className="icon" />
+                  <input type="email" placeholder="이메일" />
+                </div>
+                <div className="input">
+                  <img src={password_icon} alt="" className="icon" />
+                  <input type="password" placeholder="비밀번호" />
+                </div>
+                <div className="input">
+                  <img src={password_icon} alt="" className="icon" />
+                  <input type="password" placeholder="비밀번호 확인" />
+                </div>
+              </div>
+            )}
 
-        <div className="submit-container">
-          <div className="submit">다음</div>
-        </div>
+            <div className="s_submit-container">
+              <button className="s_submit" onClick={handleNext}>
+                {step === 1 ? "다음" : "제출"}
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </>
   );

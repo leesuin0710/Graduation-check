@@ -1,16 +1,16 @@
-/*로그인 창,, css*/
-.l_container {
+.container {
   display: flex;
   flex-direction: column;
   margin: auto;
   margin-top: 260px;
   width: 400px;
+  height: 420px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
   background: #fff;
   padding-bottom: 30px;
 }
 
-.l_header {
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,26 +19,26 @@
   margin-top: 30px;
 }
 
-.l_text {
+.text {
   color: rgb(0, 0, 0);
   font-size: 35px;
   font-weight: 700;
   font-family: "Noto Sans KR", sans-serif;
 }
 
-.l_inputs {
+.inputs {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.l_icon {
+.icon {
   width: 18px;
   height: 18px;
 }
 
-.l_input {
+.input {
   display: flex;
   align-items: center;
   margin: auto;
@@ -49,11 +49,11 @@
 }
 
 /*입력창 앞에 아이콘 설정*/
-.l_input img {
-  margin: 0px 30px;
+.input img {
+  margin: 0px 25px;
 }
 
-.l_input input {
+.input input {
   height: 30px;
   width: 400px;
   background: transparent;
@@ -64,46 +64,16 @@
   font-family: "Noto Sans KR", sans-serif;
 }
 
-/*비번을 잃어버렸나요? 설정*/
-.l_forgot-password {
-  padding-left: 1px;
-  margin-top: 20px;
-  color: #797979;
-  font-size: 13px;
-  font-family: "Noto Sans KR", sans-serif;
-}
-
-/*회원가입 링크*/
-.go-signup span {
-  color: #797979;
-
-  font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
-}
-
-.go-signup span:hover {
-  color: #000000;
-}
-
-/*Click Here! 설정*/
-.l_forgot-password span {
-  color: rgb(40, 121, 228);
-  cursor: pointer;
-  font-family: "Noto Sans KR", sans-serif;
-}
-
-.l_forgot-password span:hover {
-  color: rgb(136, 44, 189);
-}
-
-.l_submit-container {
+.s_submit-container {
   display: flex;
   gap: 10px;
   margin: 15px auto;
 }
 
-.l_submit {
-  margin-top: 10px;
+.s_submit {
+  width: 100%; /* 버튼을 컨테이너 너비에 맞게 조절 */
+  margin: 0; /* 외부 마진 제거 */
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,18 +89,7 @@
   transition: 0.2s ease-in-out;
 }
 
-.gray {
-  background: #000000;
-  color: #ffffff;
-}
-
-.span {
-  height: 30px;
-  width: 400px;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #000000;
-  font-size: 14px;
-  font-family: "Noto Sans KR", sans-serif;
+.s_submit:hover {
+  color: #fff;
+  background: #9c9c9c;
 }
