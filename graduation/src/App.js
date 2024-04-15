@@ -6,7 +6,6 @@ import Major from './Major';
 import Activity from './Activity';
 import Requirements from './Requirements'; 
 import CourseList from './Courselist'; 
-import Footer from './components/Footer';
 
 const LayoutWrapper = styled.div`
   display: flex;
@@ -73,7 +72,6 @@ const App = () => {
         </ButtonContainer>
         <CourseList /> {/* CourseList 컴포넌트 추가 */}
       </ContentWrapper>
-      <Footer />
     </LayoutWrapper>
   );
 };

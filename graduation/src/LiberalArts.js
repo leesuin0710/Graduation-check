@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styled from 'styled-components';
 
 const BoxWrapper = styled.div`
@@ -66,39 +66,55 @@ const Credit = styled.p`
 `;
 
 const EditableCredit = ({ value, onChange }) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [editValue, setEditValue] = useState(value);
-
-  const handleEdit = () => {
-    setIsEditing(true);
+    const [isEditing, setIsEditing] = useState(false);
+    const [editValue, setEditValue] = useState(value.split('/')[0]); // '/' 앞의 숫자만 가져옵니다.
+    const [totalValue] = useState(value.split('/')[1]); // '/' 뒤의 숫자는 고정시킵니다.
+    const [isValid, setIsValid] = useState(true);
+  
+    const handleEdit = () => {
+      setIsEditing(true);
+    };
+  
+    const handleInputChange = (event) => {
+      const newValue = event.target.value;
+      // 입력값이 비어있지 않고 숫자로 구성되어 있을 때만 값을 변경합니다.
+      if (!isNaN(newValue)) {
+        setEditValue(newValue);
+        onChange(newValue + '/' + totalValue);
+      }
+      setIsValid(true);
+    };
+  
+    const handleInputBlur = () => {
+      setIsEditing(false);
+      onChange(editValue + '/' + totalValue); // 수정된 숫자와 '/' 뒤의 숫자를 합쳐서 변경합니다.
+    };
+  
+    useEffect(() => {
+      if (parseInt(editValue) === parseInt(totalValue)) {
+        setIsValid(true); // 앞의 숫자와 뒤의 숫자가 같으면 유효한 상태로 설정합니다.
+      } else {
+        setIsValid(false); // 앞의 숫자와 뒤의 숫자가 다르면 유효하지 않은 상태로 설정합니다.
+      }
+    }, [editValue, totalValue]);
+  
+    return (
+      <>
+        {isEditing ? (
+          <input
+            type="text"
+            value={editValue}
+            onChange={handleInputChange}
+            onBlur={handleInputBlur}
+            autoFocus
+            style={{ width: '40px' }}
+          />
+        ) : (
+          <span onClick={handleEdit} style={{ color: isValid ? 'blue' : 'red' }}>{editValue}/{totalValue}</span>
+        )}
+      </>
+    );
   };
-
-  const handleInputChange = (event) => {
-    setEditValue(event.target.value);
-  };
-
-  const handleInputBlur = () => {
-    setIsEditing(false);
-    onChange(editValue);
-  };
-
-  return (
-    <>
-      {isEditing ? (
-        <input
-          type="number"
-          value={editValue}
-          onChange={handleInputChange}
-          onBlur={handleInputBlur}
-          autoFocus
-        />
-      ) : (
-        <span onClick={handleEdit}>{value}</span>
-      )}
-    </>
-  );
-};
-
 const LiberalArts = () => {
   return (
     <BoxWrapper>
