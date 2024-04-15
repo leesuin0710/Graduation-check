@@ -16,12 +16,12 @@ const ContentWrapper = styled.div`
   flex: 1;
   padding: 20px;
   display: flex;
-  flex-direction: column; /* 요소들을 세로로 정렬하기 위해 column으로 설정 */
+  flex-direction: column; 
 `;
 
 const MainContentWrapper = styled.div`
   display: flex;
-  gap: 20px; /* 요소 사이의 간격을 설정 */
+  gap: 20px;
 `;
 
 const Title = styled.div`
@@ -30,26 +30,27 @@ const Title = styled.div`
 `;
 
 const SubjectList = styled.p`
-  align-self: flex-start; /* 수강 과목 리스트를 컨텐츠의 오른쪽에 배치 */
-  margin-top: 40px; /* 위쪽 여백 추가 */
+  align-self: flex-start; 
+  margin-top: 10px; 
+  font-weight: bold;
+  font-size: 24px;
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
-  gap: 10px; /* 버튼 사이의 간격을 설정 */
-  margin-top: 20px; /* 위쪽 여백 추가 */
+  gap: 10px; 
+  margin-top: 10px; 
 `;
 
 const Button = styled.button`
   padding: 10px 20px;
-  background-color: black; /* 버튼 배경색 설정 */
-  color: white; /* 버튼 텍스트 색상 설정 */
+  background-color: black; 
+  color: white; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
 `;
 
-// 메인 앱 컴포넌트
 const App = () => {
   return (
     <LayoutWrapper>
@@ -64,13 +65,13 @@ const App = () => {
             <Activity />
           </div>
         </MainContentWrapper>
-        <Requirements /> {/* 요구사항 컴포넌트를 교양 컴포넌트 아래에 배치 */}
+        <Requirements />
         <SubjectList>수강 과목 등록</SubjectList>
         <ButtonContainer>
           <Button>파일 업로드</Button>
           <Button>직접 추가</Button>
         </ButtonContainer>
-        <CourseList /> {/* CourseList 컴포넌트 추가 */}
+        <CourseList /> 
       </ContentWrapper>
     </LayoutWrapper>
   );

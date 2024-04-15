@@ -52,8 +52,8 @@ const RowContainer = styled.div`
 
 const EditableCredit = ({ value, onChange }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editValue, setEditValue] = useState(value.split('/')[0]); // '/' 앞의 숫자만 가져옵니다.
-  const [totalValue] = useState(value.split('/')[1]); // '/' 뒤의 숫자는 고정시킵니다.
+  const [editValue, setEditValue] = useState(value.split('/')[0]); 
+  const [totalValue] = useState(value.split('/')[1]); 
   const [isValid, setIsValid] = useState(true);
 
   const handleEdit = () => {
@@ -62,7 +62,6 @@ const EditableCredit = ({ value, onChange }) => {
 
   const handleInputChange = (event) => {
     const newValue = event.target.value;
-    // 입력값이 비어있지 않고 숫자로 구성되어 있을 때만 값을 변경합니다.
     if (!isNaN(newValue)) {
       setEditValue(newValue);
       onChange(newValue + '/' + totalValue);

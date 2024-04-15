@@ -67,8 +67,8 @@ const Credit = styled.p`
 
 const EditableCredit = ({ value, onChange }) => {
     const [isEditing, setIsEditing] = useState(false);
-    const [editValue, setEditValue] = useState(value.split('/')[0]); // '/' 앞의 숫자만 가져옵니다.
-    const [totalValue] = useState(value.split('/')[1]); // '/' 뒤의 숫자는 고정시킵니다.
+    const [editValue, setEditValue] = useState(value.split('/')[0]); 
+    const [totalValue] = useState(value.split('/')[1]);
     const [isValid, setIsValid] = useState(true);
   
     const handleEdit = () => {
@@ -77,7 +77,6 @@ const EditableCredit = ({ value, onChange }) => {
   
     const handleInputChange = (event) => {
       const newValue = event.target.value;
-      // 입력값이 비어있지 않고 숫자로 구성되어 있을 때만 값을 변경합니다.
       if (!isNaN(newValue)) {
         setEditValue(newValue);
         onChange(newValue + '/' + totalValue);
@@ -87,14 +86,14 @@ const EditableCredit = ({ value, onChange }) => {
   
     const handleInputBlur = () => {
       setIsEditing(false);
-      onChange(editValue + '/' + totalValue); // 수정된 숫자와 '/' 뒤의 숫자를 합쳐서 변경합니다.
+      onChange(editValue + '/' + totalValue); 
     };
   
     useEffect(() => {
       if (parseInt(editValue) === parseInt(totalValue)) {
-        setIsValid(true); // 앞의 숫자와 뒤의 숫자가 같으면 유효한 상태로 설정합니다.
+        setIsValid(true); 
       } else {
-        setIsValid(false); // 앞의 숫자와 뒤의 숫자가 다르면 유효하지 않은 상태로 설정합니다.
+        setIsValid(false);
       }
     }, [editValue, totalValue]);
   

@@ -1,39 +1,38 @@
 import React from "react";
 import styled from "styled-components";
-import { FiHome } from "react-icons/fi"; // react-icons에서 FiHome 아이콘을 import합니다.
+import { FiHome } from "react-icons/fi"; 
 import profileImage from "./profile.jpg";
 
-// Styled-components를 사용하여 스타일을 정의합니다.
 const SidebarWrapper = styled.div`
-  background-color: #f0f0f0; /* 사이드바의 배경색을 설정합니다. */
+  background-color: #f0f0f0;
   width: 250px;
-  height: 100%;
+  height: 130%;
   padding: 20px;
 `;
 
 const SidebarHeader = styled.div`
   display: flex;
-  flex-direction: column; /* 세로 방향으로 정렬하기 위해 column으로 설정합니다. */
-  align-items: center; /* 가운데 정렬하기 위해 추가합니다. */
+  flex-direction: column; 
+  align-items: center; 
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 70px; /* 헤더와 메뉴 사이에 간격을 설정합니다. */
+  margin-bottom: 70px; 
 `;
 
 const ProfileImage = styled.img`
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  margin-bottom: 70px; /* 프로필 이미지 아래 간격 조정 */
-  position: relative; /* 상대적 위치 지정 */
+  margin-bottom: 70px;
+  position: relative; 
   top: 73px;
 `;
 
 const UserInfo = styled.div`
-  margin-top: 70px; /* 프로필 이미지와 유저 정보 사이 간격 조정 */
+  margin-top: 70px; 
   text-align: center;
   font-size: 14px;
-  margin-bottom: 210px; /* 유저 정보와 정보 수정하기 버튼 사이 간격 조정 */
+  margin-bottom: 210px; 
 `;
 
 const SidebarIcon = styled.div`
@@ -60,12 +59,11 @@ const ExternalLink = styled.a`
   align-items: center;
 `;
 
-// 실제 사이드바 컴포넌트
 const Sidebar = () => {
   return (
     <SidebarWrapper>
       <SidebarHeader>
-        <ProfileImage src={profileImage} alt="Profile" /> {/* 프로필 이미지 추가 */}
+        <ProfileImage src={profileImage} alt="Profile" />
         <UserInfo>
           <div>김이름</div>
           <div>123456789</div>
@@ -75,7 +73,6 @@ const Sidebar = () => {
       </SidebarHeader>
       
       <SidebarMenu>
-        {/* 각 사이트 이름 앞에 집 모양 아이콘을 추가합니다. */}
         <SidebarMenuItem>
           <ExternalLink href="https://intranet.hsu.ac.kr/" target="_blank" rel="noopener noreferrer">
             <SidebarIcon><FiHome /></SidebarIcon>
@@ -94,7 +91,6 @@ const Sidebar = () => {
             호서대 포털시스템
           </ExternalLink>
         </SidebarMenuItem>
-        {/* 필요한 만큼 메뉴 아이템을 추가하세요 */}
       </SidebarMenu>
     </SidebarWrapper>
   );

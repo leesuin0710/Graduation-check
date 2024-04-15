@@ -10,9 +10,9 @@ const BoxWrapper = styled.div`
   margin: 10px;
   width: 650px;
   height: 133px;
-  display: flex; /* 가로로 정렬을 위한 flex 설정 */
-  justify-content: space-between; /* 요소 사이의 간격을 균등하게 배분 */
-  align-items: center; /* 수직 정렬 */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
 `;
 
 const EditButton = styled.button`
@@ -40,18 +40,15 @@ const Tag = styled.span`
 `;
 
 const Progress = styled.span`
-  color: ${props => (props.isValid ? 'blue' : 'red')}; // 유효성에 따라 색상 변경
-  position: relative; // 상대 위치 지정
+  color: ${props => (props.isValid ? 'blue' : 'red')}; 
+  position: relative;
 `;
-
-// Removed ProgressText styling as it's not used
 
 const EditableCredit = ({ value, onChange }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(value.split('/')[0]);
-  const [totalValue] = useState(value.split('/')[1]); // '/' 뒤의 숫자는 고정시킵니다.
+  const [totalValue] = useState(value.split('/')[1]); 
   const [isValid, setIsValid] = useState(true);
-
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -59,7 +56,6 @@ const EditableCredit = ({ value, onChange }) => {
 
   const handleInputChange = (event) => {
     const newValue = event.target.value;
-    // 입력값이 비어있지 않고 숫자로 구성되어 있을 때만 값을 변경합니다.
     if (!isNaN(newValue)) {
       setEditValue(newValue);
       onChange(newValue + '/' + totalValue);
@@ -69,14 +65,14 @@ const EditableCredit = ({ value, onChange }) => {
 
   const handleInputBlur = () => {
     setIsEditing(false);
-    onChange(editValue + '/' + totalValue); // 수정된 숫자와 '/' 뒤의 숫자를 합쳐서 변경합니다.
+    onChange(editValue + '/' + totalValue);
   };
 
   useEffect(() => {
     if (parseInt(editValue) === parseInt(totalValue)) {
-      setIsValid(true); // 앞의 숫자와 뒤의 숫자가 같으면 유효한 상태로 설정합니다.
+      setIsValid(true);
     } else {
-      setIsValid(false); // 앞의 숫자와 뒤의 숫자가 다르면 유효하지 않은 상태로 설정합니다.
+      setIsValid(false);
     }
   }, [editValue, totalValue]);
 
@@ -93,7 +89,7 @@ const EditableCredit = ({ value, onChange }) => {
         />
       ) : (
         <Progress isValid={isValid} onClick={handleEdit}>
-          {editValue}
+          {editValue}/{totalValue}
         </Progress>
       )}
     </>
@@ -103,15 +99,15 @@ const EditableCredit = ({ value, onChange }) => {
 const Activity = () => {
   return (
     <BoxWrapper>
-      <div> {/* 첫 번째 요소 */}
+      <div>
         <ActivityTitle>활동</ActivityTitle>
         <EditButton>수정하기</EditButton>
       </div>
-      <div style={{ marginRight: '200px', display: 'flex' }}>
+      <div style={{ marginLeft: '-150px', display: 'flex' }}>
         <Tag>채플</Tag>
         <EditableCredit value="3/4" onChange={(newValue) => console.log(newValue)} />
       </div>
-      <div style={{ marginLeft: '-130px', display: 'flex' }}>
+      <div style={{ marginRight: '200px', display: 'flex' }}>
         <Tag>봉사</Tag>
         <EditableCredit value="1/1" onChange={(newValue) => console.log(newValue)} />
       </div>
