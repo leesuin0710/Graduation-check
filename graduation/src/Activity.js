@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './Activity.css'; // CSS 파일 import
+import './Activity.css';
 
-const Activity = () => {
+const EditableCredit = ({ value, onChange }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editValue, setEditValue] = useState('');
-  const [totalValue, setTotalValue] = useState('');
+  const [editValue, setEditValue] = useState(value.split('/')[0]);
+  const [totalValue] = useState(value.split('/')[1]);
   const [isValid, setIsValid] = useState(true);
 
   const handleEdit = () => {
@@ -15,18 +15,17 @@ const Activity = () => {
     const newValue = event.target.value;
     if (!isNaN(newValue)) {
       setEditValue(newValue);
+      onChange(newValue + '/' + totalValue);
     }
     setIsValid(true);
   };
 
   const handleInputBlur = () => {
     setIsEditing(false);
-    // onBlur 이벤트에서 editValue를 totalValue와 합쳐서 onChange를 호출합니다.
-    console.log(editValue + '/' + totalValue);
+    onChange(editValue + '/' + totalValue);
   };
 
   useEffect(() => {
-    // editValue와 totalValue를 비교하여 isValid를 업데이트합니다.
     if (parseInt(editValue) === parseInt(totalValue)) {
       setIsValid(true);
     } else {
@@ -35,56 +34,48 @@ const Activity = () => {
   }, [editValue, totalValue]);
 
   return (
-    <div className="BoxWrapper">
+    <>
+      {isEditing ? (
+        <input
+          type="text"
+          value={editValue}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
+          autoFocus
+          style={{ width: '40px' }}
+        />
+      ) : (
+        <div className="Progress" isValid={isValid} onClick={handleEdit}>
+          {editValue}/{totalValue}
+        </div>
+      )}
+    </>
+  );
+};
+
+const Activity = () => {
+  return (
+    <div className="BoxWrappe">
       <div>
-        <h3 className="ActivityTitle">활동</h3>
-        <button className="EditButton" onClick={handleEdit}>수정하기</button>
+        <h2 className="ActivityTitle">활동</h2>
+        <button className="EditButton">수정하기</button>
       </div>
       <div className="TagContainer">
         <span className="Tag">채플</span>
-        {isEditing ? (
-          <input
-            type="text"
-            value={editValue}
-            onChange={handleInputChange}
-            onBlur={handleInputBlur}
-            autoFocus
-            style={{ width: '40px' }}
-          />
-        ) : (
-          <span
-            className={isValid ? "Progress blue" : "Progress red"}
-            onClick={handleEdit}
-          >
-            {editValue || '3'}/{totalValue || '4'}
-          </span>
-        )}
+        <EditableCredit value="3/4" onChange={(newValue) => console.log(newValue)} />
       </div>
       <div className="TagContainer">
         <span className="Tag">봉사</span>
-        {isEditing ? (
-          <input
-            type="text"
-            value={editValue}
-            onChange={handleInputChange}
-            onBlur={handleInputBlur}
-            autoFocus
-            style={{ width: '40px' }}
-          />
-        ) : (
-          <span
-            className={isValid ? "Progress blue" : "Progress red"}
-            onClick={handleEdit}
-          >
-            {editValue || '1'}/{totalValue || '1'}
-          </span>
-        )}
+        <EditableCredit value="1/1" onChange={(newValue) => console.log(newValue)} />
       </div>
     </div>
   );
 };
 
 export default Activity;
+
+
+
 
 
 

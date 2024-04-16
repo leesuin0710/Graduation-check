@@ -1,0 +1,45 @@
+.BoxWrapping {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 1310px;
+    height: auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .LineWrapper {
+    width: 100%;
+    margin: 55px auto;
+    text-align: center;
+  }
+  
+  .Line {
+    width: 1000px;
+    height: 1px;
+    background-color: #000;
+    margin: 35px 120px;
+    position: relative;
+  }
+  
+  .RowText {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    transform: translateY(-50%);
+  }
+  
+  .Col {
+    position: absolute;
+    top: 60px;
+    text-align: center;
+    color: #666;
+    right: 20px;
+  }
+  
