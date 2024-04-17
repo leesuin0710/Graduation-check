@@ -16,7 +16,7 @@
 }
 
 .Title {
-    margin: -10px 0; /* 위아래 여백을 추가하여 다른 요소와 겹치지 않도록 합니다. */
+    margin: -10px 0; 
 }
   
 .EditButton {

@@ -14,7 +14,7 @@ const App = () => {
         <Sidebar />
       </div>
       <div className="ContentWrapper">
-        <title>마이페이지</title>
+      <h1 className="title">마이페이지</h1>
         <div className="MainContentWrapper">
           <LiberalArts />
           <div>

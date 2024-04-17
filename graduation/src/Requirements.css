@@ -1,15 +1,15 @@
-.BoxWrapperse{ 
+.BoxWrapperse {
   position: relative;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
-  min-width: 1310px;
-  height: 300px;
-  display: flex; 
-  flex-direction: column; 
-  align-items: flex-start; 
+  width: 1310px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .EditButton {
@@ -27,27 +27,31 @@
 .Text {
   margin: 0;
   font-weight: bold;
-  top: -10px;
+  top: -10px; /* Adjusted top margin */
 }
 
 .Achievement {
-  color: blue; 
+  color: blue;
+  margin: 10px 0;
 }
 
 .Unachieved {
-  color: red; 
+  color: red;
+  margin: 10px 0;
 }
 
 .Title {
-  margin: 10px 0; 
+  margin: -10px 0; /* Adjusted top and bottom margins */
 }
 
 .OptionalText {
-  color: gray; 
+  color: gray;
+  margin: 10px 0;
 }
 
 .MandatoryText {
-  color: gray; 
+  color: gray;
+  margin: 10px 0;
 }
 
   

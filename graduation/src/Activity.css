@@ -43,6 +43,12 @@
     position: static; /* 절대 위치에서 상대 위치로 변경 */
 }
 
+.TagContainer {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* 태그 간 간격을 조절합니다. */
+  }
+  
 .Progress {
     color: blue; /* 또는 red */
     position: relative;
