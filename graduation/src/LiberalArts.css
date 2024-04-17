@@ -79,6 +79,7 @@
     font-weight: bold;
     cursor: default;
     margin-right: 10px;
+    margin-bottom: 18px;
 }
 
 .LibCreditValue {
@@ -88,7 +89,7 @@
 .LibCreditItem {
     display: flex;
     align-items: center;
-    margin-bottom: 10px; /* 요소 사이의 간격을 조절합니다. */
+    margin-bottom: 20px; /* 요소 사이의 간격을 조절합니다. */
     justify-content: center; /* 가운데 정렬 추가 */
 }
   
@@ -104,9 +105,10 @@
     margin-right: 10px;
 }
 
-.isIncomplete {
+.LibisIncomplete {
     color: red;
-    margin-right: 10px;
+    margin-right: 5px;
+    font-weight: bold;
 }
 
 

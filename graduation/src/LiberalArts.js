@@ -45,10 +45,10 @@ const LiberalArts = () => {
         <p className="LibCredit">학점</p>
         <p className="LibCredit">학점</p>
         <p className="LibCredit">학점</p>
-        <p className="Credit isIncomplete">미이수</p>
-        <p className="Credit isIncomplete">미이수</p>
-        <p className="Credit isIncomplete">미이수</p>
-        <p className="Credit isIncomplete">미이수</p>
+        <p className="LibCredit LibisIncomplete">미이수</p>
+        <p className="LibCredit LibisIncomplete">미이수</p>
+        <p className="LibCredit LibisIncomplete">미이수</p>
+        <p className="LibCredit LibisIncomplete">미이수</p>
       </div>
     </div>
   );
