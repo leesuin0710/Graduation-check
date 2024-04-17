@@ -5,7 +5,7 @@
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
-  width: 1310px;
+  width: 1300px;
   min-height: 150px;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@
 .Text {
   margin: 0;
   font-weight: bold;
-  top: -10px; /* Adjusted top margin */
+  margin-top: 65px; /* Adjusted top margin */
 }
 
 .Achievement {
