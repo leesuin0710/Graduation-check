@@ -13,38 +13,38 @@ const LiberalArts = () => {
 
   return (
     <div className="BoxWrap">
-      <h3 className="Title">교양</h3>
-      <div className="CreditContain">
-        <div className="CreditItem">
-          <span className="CreditTitle">필수 교양</span>
-          <span className="CreditValue">{credits.required.value} / {credits.required.total}</span>
+      <h3 className="LibTitle">교양</h3>
+      <div className="LibCreditContain">
+        <div className="LibCreditItem">
+          <span className="LibCreditTitle">필수 교양</span>
+          <span className="LibCreditValue">{credits.required.value} / {credits.required.total}</span>
         </div>
-        <div className="CreditItem">
-          <span className="CreditTitle">자유 교양</span>
-          <span className="CreditValue">{credits.elective.value} / {credits.elective.total}</span>
+        <div className="LibCreditItem">
+          <span className="LibCreditTitle">자유 교양</span>
+          <span className="LibCreditValue">{credits.elective.value} / {credits.elective.total}</span>
         </div>
-        <div className="CreditItem">
-          <span className="CreditTitle">일반 교양</span>
-          <span className="CreditValue">{credits.general.value} / {credits.general.total}</span>
+        <div className="LibCreditItem">
+          <span className="LibCreditTitle">일반 교양</span>
+          <span className="LibCreditValue">{credits.general.value} / {credits.general.total}</span>
         </div>
-        <div className="CreditItem">
-          <span className="CreditLabel">1영역 교양</span>
+        <div className="LibCreditItem">
+          <span className="LibCreditLabel">1영역 교양</span>
         </div>
-        <div className="CreditItem">
-          <span className="CreditLabel">2영역 교양</span>
+        <div className="LibCreditItem">
+          <span className="LibCreditLabel">2영역 교양</span>
         </div>
-        <div className="CreditItem">
-          <span className="CreditLabel">3영역 교양</span>
+        <div className="LibCreditItem">
+          <span className="LibCreditLabel">3영역 교양</span>
         </div>
-        <div className="CreditItem">
-          <span className="CreditLabel">4영역 교양</span>
+        <div className="LibCreditItem">
+          <span className="LibCreditLabel">4영역 교양</span>
         </div>
       </div>
-      <button className="EditButton">수정하기</button>
-      <div className="CreditWrap">
-        <p className="Credit">학점</p>
-        <p className="Credit">학점</p>
-        <p className="Credit">학점</p>
+      <button className="LibEditButton">수정하기</button>
+      <div className="LibCreditWrap">
+        <p className="LibCredit">학점</p>
+        <p className="LibCredit">학점</p>
+        <p className="LibCredit">학점</p>
         <p className="Credit isIncomplete">미이수</p>
         <p className="Credit isIncomplete">미이수</p>
         <p className="Credit isIncomplete">미이수</p>

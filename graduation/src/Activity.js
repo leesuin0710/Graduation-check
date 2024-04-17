@@ -58,14 +58,14 @@ const Activity = () => {
     <div className="BoxWrappe">
       <div>
         <h2 className="ActivityTitle">활동</h2>
-        <button className="EditButton">수정하기</button>
+        <button className="ActivityEditButton">수정하기</button>
       </div>
-      <div className="TagContainer">
-        <span className="Tag">채플</span>
+      <div className="A_TagContainer">
+        <span className="A_Tag">채플</span>
         <EditableCredit value="3/4" onChange={(newValue) => console.log(newValue)} />
       </div>
-      <div className="TagContainer">
-        <span className="Tag">봉사</span>
+      <div className="A_TagContainer">
+        <span className="A_Tag">봉사</span>
         <EditableCredit value="1/1" onChange={(newValue) => console.log(newValue)} />
       </div>
     </div>

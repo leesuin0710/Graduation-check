@@ -55,8 +55,8 @@ const Major = () => {
   return (
     <div className="BoxWrapp">
       <div>
-        <h2 className="Title">전공</h2>
-        <button className="EditButton">수정하기</button>
+        <h2 className="MajorTitle">전공</h2>
+        <button className="MajorEditButton">수정하기</button>
       </div>
       <div className="RowContaine">
         <div className="DescriptionContainer">
